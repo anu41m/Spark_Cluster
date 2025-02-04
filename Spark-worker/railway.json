@@ -1,0 +1,6 @@
+{
+    "spark-worker": {
+      "type": "docker",
+      "path": "."
+      }
+}

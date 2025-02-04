@@ -1,0 +1,32 @@
+# Ignore node_modules and dependency files
+node_modules/
+package-lock.json
+
+# Ignore logs and temporary files
+*.log
+*.tmp
+
+# Ignore VS Code settings
+.vscode/
+
+# Ignore Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Ignore Python cache and virtual environment
+__pycache__/
+*.pyc
+*.pyo
+venv/
+env/
+
+# Ignore Airflow logs and SQLite database
+logs/
+airflow.db
+
+# Ignore Spark temporary files
+derby.log
+spark-warehouse/
+
+# Ignore built containers and volumes
+docker-compose.override.yml
+.dockerignore

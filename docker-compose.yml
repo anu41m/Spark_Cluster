@@ -1,0 +1,26 @@
+version: '3.9'
+
+services:
+  spark-master:
+    image: anoopm2801/spark-worker:latest
+    container_name: spark-master
+    environment:
+      SPARK_MASTER_HOST: spark-master
+      SPARK_MASTER_URL: spark://spark-master:7077
+    ports:
+      - "8080:8080"
+      - "7077:7077"
+      - "8888:8888"
+  
+  spark-worker:
+    image: anoopm2801/spark-master:latest
+    container_name: spark-worker
+    environment:
+      SPARK_MASTER: spark://spark-master:7077
+      SPARK_WORKER_CORES: "2"
+      SPARK_WORKER_MEMORY: "1G"
+    depends_on:
+      - spark-master
+    ports:
+      - "8081:8081"
+      - "7337:7337"

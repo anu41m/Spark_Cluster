@@ -1,0 +1,8 @@
+{
+  "services": {
+    "spark-master": {
+      "type": "docker",
+      "path": "."
+      }
+    }
+}
