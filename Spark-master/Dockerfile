@@ -58,7 +58,7 @@ RUN mkdir -p /mnt /data /home/jovyan/Notebooks /home/jovyan/Notebooks/output /mn
     chown -R jovyan:users /mnt/onedrive ${SPARK_HOME} ${HADOOP_HOME} /home/jovyan/.jupyter /home/jovyan/Notebooks /home/jovyan/Notebooks/output
 
 # Expose necessary ports for Jupyter Notebook, Spark, and rclone remote control (5572)
-EXPOSE 8888 8082 7077 5572
+EXPOSE 8888 8082 7077
 
 # Switch back to the default user
 USER jovyan
