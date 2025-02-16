@@ -26,7 +26,7 @@ RUN apt-get update && apt-get install -y \
     gnupg \
     openjdk-17-jdk\
     rclone\
-    && pip install delta-spark==$DELTA_VERSION papermill openpyxl yfinance msal \
+    && pip install delta-spark==$DELTA_VERSION papermill openpyxl yfinance msal psycopg2-binary \
     && curl -o /tmp/hadoop.tar.gz "https://downloads.apache.org/hadoop/common/hadoop-${HADOOP_VERSION}/hadoop-${HADOOP_VERSION}.tar.gz"\
     && tar -xzf /tmp/hadoop.tar.gz -C /usr/local/ && \
     mv /usr/local/hadoop-${HADOOP_VERSION} ${HADOOP_HOME} && \
@@ -58,7 +58,7 @@ RUN mkdir -p /mnt /data /home/jovyan/Notebooks /home/jovyan/Notebooks/output /mn
     chown -R jovyan:users /mnt/onedrive ${SPARK_HOME} ${HADOOP_HOME} /home/jovyan/.jupyter /home/jovyan/Notebooks /home/jovyan/Notebooks/output
 
 # Expose necessary ports for Jupyter Notebook, Spark, and rclone remote control (5572)
-EXPOSE 8888 8082 7077 5572
+EXPOSE 8888 8082 7077
 
 # Switch back to the default user
 USER jovyan
