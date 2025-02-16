@@ -26,7 +26,7 @@ RUN apt-get update && apt-get install -y \
     gnupg \
     openjdk-17-jdk\
     rclone\
-    && pip install delta-spark==$DELTA_VERSION papermill openpyxl yfinance msal \
+    && pip install delta-spark==$DELTA_VERSION papermill openpyxl yfinance msal psycopg2-binary \
     && curl -o /tmp/hadoop.tar.gz "https://downloads.apache.org/hadoop/common/hadoop-${HADOOP_VERSION}/hadoop-${HADOOP_VERSION}.tar.gz"\
     && tar -xzf /tmp/hadoop.tar.gz -C /usr/local/ && \
     mv /usr/local/hadoop-${HADOOP_VERSION} ${HADOOP_HOME} && \
