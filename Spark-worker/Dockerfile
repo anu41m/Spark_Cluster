@@ -22,9 +22,9 @@ ENV PYSPARK_DRIVER_PYTHON=/opt/conda/bin/python
 ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64 
 
 # Create Spark work directory
-RUN mkdir -p ${SPARK_HOME}/work /mnt /data /home/jovyan/Notebooks/output && \
-    chmod -R 777 /mnt /data /home/jovyan/Notebooks && \
-    chown -R jovyan:users ${SPARK_HOME} /home/jovyan/.jupyter /mnt /data /home/jovyan/Notebooks
+RUN mkdir -p ${SPARK_HOME}/work /mnt /data /home/jovyan/Notebooks/output /usr/local/spark/work && \
+    chmod -R 777 /mnt /data /home/jovyan/Notebooks /usr/local/spark/work && \
+    chown -R jovyan:users ${SPARK_HOME} /home/jovyan/.jupyter /mnt /data /home/jovyan/Notebooks /usr/local/spark/work
 
 # Switch back to jovyan user
 USER jovyan
