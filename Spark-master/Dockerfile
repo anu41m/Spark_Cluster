@@ -63,7 +63,7 @@ EXPOSE 8888 8082 7077
 # Switch back to the default user
 USER jovyan
 
-WORKDIR /app/Notebooks
+WORKDIR /home/jovyan/Notebooks
 
 # Start services
 CMD ["/home/jovyan/script.sh"]
