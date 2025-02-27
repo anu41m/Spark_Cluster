@@ -41,11 +41,11 @@ RUN curl -O https://repo1.maven.org/maven2/io/delta/${MAVEN_ARTIFACT}/${DELTA_VE
     
 
 # # Copy configuration files to the base Spark directories
-# COPY Docker_setup/spark-master/spark-defaults.json ${SPARK_HOME}/conf/spark-defaults.json
-# COPY Docker_setup/spark-master/jupyter_notebook_config.py /home/jovyan/.jupyter/
-# COPY Docker_setup/spark-master/packages.txt ${SPARK_HOME}/conf/packages.txt
+COPY /spark-defaults.json ${SPARK_HOME}/conf/spark-defaults.json
+COPY /jupyter_notebook_config.py /home/jovyan/.jupyter/
+COPY /packages.txt ${SPARK_HOME}/conf/packages.txt
 # COPY Docker_setup/fat.jar /app/setup/fat.jar
-# # COPY /Scripts /home/jovyan/Notebooks
+COPY /Notebooks /home/jovyan/Notebooks
 
 # Copy rclone.conf and setup script
 # COPY Docker_setup/spark-master/rclone.conf /home/jovyan/Notebooks/rclone.conf
@@ -62,6 +62,8 @@ EXPOSE 8888 8082 7077
 
 # Switch back to the default user
 USER jovyan
+
+WORKDIR /app/Notebooks
 
 # Start services
 CMD ["/home/jovyan/script.sh"]
