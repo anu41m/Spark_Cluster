@@ -53,9 +53,9 @@ COPY script.sh /home/jovyan/script.sh
 RUN chmod +x /home/jovyan/script.sh
 
 # Adjust permissions for added files
-RUN mkdir -p /mnt /data /home/jovyan/Notebooks /home/jovyan/Notebooks/output /mnt/onedrive &&\
-    chmod -R 777 /home/jovyan/Notebooks/output /mnt/onedrive /home/jovyan/Notebooks/ &&\
-    chown -R jovyan:users /mnt/onedrive ${SPARK_HOME} ${HADOOP_HOME} /home/jovyan/.jupyter /home/jovyan/Notebooks /home/jovyan/Notebooks/output
+RUN mkdir -p /home/jovyan/Notebooks /home/jovyan/Notebooks/output /usr/local/spark/work &&\
+    chmod -R 777 /home/jovyan/Notebooks/output /home/jovyan/Notebooks/ /usr/local/spark/work &&\
+    chown -R jovyan:users ${SPARK_HOME} ${HADOOP_HOME} /home/jovyan/.jupyter /home/jovyan/Notebooks /home/jovyan/Notebooks/output /usr/local/spark/work
 
 # Expose necessary ports for Jupyter Notebook, Spark, and rclone remote control (5572)
 EXPOSE 8888 8082 7077
